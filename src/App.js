@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Dropdown from 'react-dropdown';
 import FontAwesome from 'react-fontawesome';
+import { Select } from 'react-form';
 import './App.css';
 
 class App extends Component {
@@ -45,6 +46,7 @@ render() {
 
         <div id="setupSteps" className="collapse, black_border, code_padding">
             <div className="btn-group">
+                {/*<Select className="select_style" options={options} />*/}
                 <button type="button" className="btn btn-primary" data-toggle="collapse" data-target="#setupSteps">
                     Project setup steps
                 </button>
@@ -57,9 +59,7 @@ render() {
                 <h5>surge</h5>
                 <h5>project path -> path/to/my-project/build</h5>
                 <h5>domain name -> anything you want! (Must end with .surge.sh)</h5>
-                <h5>example script -> "dbro": "react-scripts build && echo dbro.surge.sh > CNAME && mv CNAME
-                    build/ && surge"
-                </h5>
+                <h5>example script -> "dbro": "react-scripts build && echo dbro.surge.sh > CNAME && mv CNAME build/ && surge"</h5>
         </div>
     </div>
     );
