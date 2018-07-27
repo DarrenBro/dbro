@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import PetProjects from './Components/PetProjects';
 import AddPet from './Components/AddPet';
-import './App.css';
 import uuid from 'uuid';
 import Todos from './Components/Todos'
 
