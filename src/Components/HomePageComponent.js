@@ -4,6 +4,8 @@ import HomePageContainer from '../Containers/HomePageContainer';
 
 class HomePageComponent extends Component {
 
+
+
   render() {
     return (
       <HomePageContainer>

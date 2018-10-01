@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import HomePageContainer from './Containers/HomePageContainer';
-import HomePageComponent from "./Components/HomePageComponent";
+import HomePageComponent from './Components/HomePageComponent';
 
 class App extends Component {
 
