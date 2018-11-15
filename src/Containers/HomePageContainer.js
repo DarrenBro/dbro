@@ -4,7 +4,6 @@ import '../styles/HomePage.css';
 
 class HomePageContainer extends Component {
   render() {
-
     return (
       <div className="center_text">
         <header className="dbro_header">

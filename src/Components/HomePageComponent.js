@@ -1,19 +1,41 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { Component } from 'react';
+import { dbronaOne, dbronaTwo } from '../constants';
 import '../styles/HomePage.css';
 import HomePageContainer from '../Containers/HomePageContainer';
+import DBronaComponent from './DBronaComponent';
 
 class HomePageComponent extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      showDBronaComponent: false
+    };
 
+    this.handleDbronaClick = this.handleDbronaClick.bind(this);
+  }
+
+  handleDbronaClick() {
+    this.setState(prevState => ({ showDBronaComponent: !prevState.showDBronaComponent }));
+  }
 
   render() {
+
+    // if (this.state.showDBronaComponent) {
+    //   return (
+    //     <DBronaComponent />
+    //   );
+    // }
+
     return (
       <HomePageContainer>
         <div className="flex-container">
-          <div>
+          <div onClick={this.handleDbronaClick}>
             <img
-              src="https://lh3.googleusercontent.com/z-NwJIDnPspnI9DRUbgnGcfB77E9qMY7nRAA53HGDbam6jYmdB6UMVuMq2aO4Q-ZRKJ-1ge7AN1jF0PnT3yu7_9Ihvyy1anMYAcI2FfYJOlMtft1uH1xCmZYP8qCQ5ODOwYQnLclSi8"
-              alt="DBrona" />
+              src={this.state.showDBronaComponent ? dbronaOne : dbronaTwo}
+              alt="DBrona"
+            />
             <span className="small-text">DBrona</span>
           </div>
           <div>
