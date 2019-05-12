@@ -1,6 +1,9 @@
 # dbro
+A personal website.
 
-A personal website
+Currently Production Hosted on S3.
+
+Previously hosted on dev using surge.
 
 This site was hosted free with https://surge.sh/"
 
