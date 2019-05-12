@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import HomePageComponent from './Components/HomePageComponent';
+import HomePageContainer from './Containers/HomePageContainer';
 
 class App extends Component {
-
   render() {
     return (
       <div>
         {/* <AppRouter /> */}
-        <HomePageComponent />
+        <HomePageContainer />
       </div>
     );
   }
