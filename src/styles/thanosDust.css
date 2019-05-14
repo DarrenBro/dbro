@@ -1,0 +1,28 @@
+.thanosSnap {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1s 4s, opacity 4s linear;
+    animation-name: example;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes example {
+    from {display: block;}
+    to {display: none;}
+}
+
+.timeStoneReturn {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 3s linear;
+}
+
+.unwellText {
+    font-size: 0.7em;
+    font-family: sans-serif;
+}
+
+.unwell {
+    visibility: hidden;
+}

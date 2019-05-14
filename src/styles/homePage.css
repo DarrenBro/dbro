@@ -1,0 +1,42 @@
+.center_text {
+    text-align: center;
+}
+
+.dbro_title {
+    font-size: 1.5em;
+}
+
+.dbro_header {
+    background-color: #2583ef;
+    padding: 1px 0 1px 0;
+    color: white;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.flex-container > div {
+    line-height: 100%;
+    margin-left: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/*Thanos*/
+
+.thanosText {
+    font-size: 1.1em;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 5px 0 3px 0;
+}
+
+.timeStoneText {
+    font-size: 1.1em;
+    font-style: italic;
+    font-family: fantasy;
+    padding-top: 5px;
+}

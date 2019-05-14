@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/HomePage.css';
+import '../styles/homePage.css';
 
 const DisplayComponent = ({ picture, text }) => (
   <div>
