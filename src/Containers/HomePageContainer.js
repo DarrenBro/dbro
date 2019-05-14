@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../styles/HomePage.css';
 import HomePageComponent from '../Components/HomePageComponent';
 
 class HomePageContainer extends Component {

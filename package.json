@@ -5,17 +5,19 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.1",
+    "node-sass": "^4.12.0",
     "popper": "^1.0.1",
-    "popper.js": "^1.14.7",
+    "popper.js": "^1.15.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-dropdown": "^1.6.4",
     "react-fontawesome": "^1.6.1",
     "react-form": "^2.16.3",
     "react-scripts": "1.1.1",
-    "react-thanos": "^1.0.2"
+    "react-thanos": "^1.0.2",
+    "sass-loader": "^7.1.0"
   },
   "scripts": {
     "dbro": "react-scripts build && echo dbro.surge.sh > CNAME && mv CNAME build/ && surge",
@@ -32,8 +34,8 @@
     "eslint-config-airbnb": "^15.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-babel": "^4.1.2",
-    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.12.4"
+    "eslint-plugin-react": "^7.13.0"
   }
 }
