@@ -7,22 +7,39 @@
 }
 
 .dbro_header {
-    background-color: #2583ef;
-    padding: 1px 0 1px 0;
-    color: white;
+    /*background-color: #2583ef;*/
+    /*padding: 1px 0 1px 0;*/
+    /*color: white;*/
+    color: #2583ef;
+}
+
+.imageText {
+    font-size: 0.8em;
 }
 
 .flex-container {
     display: flex;
+    /*display: inline-flex; Makes container display inline*/
     flex-wrap: wrap;
     justify-content: center;
+    flex-direction: row;
+    /*outline: 2px solid blue;*/
 }
 
 .flex-container > div {
     line-height: 100%;
-    margin-left: 10px;
+    padding: 10px 10px 5px 0;
     font-size: 1.5em;
     cursor: pointer;
+    width: 28%;
+    /*outline: 2px solid red;*/
+}
+
+.imageResize {
+    /*width: 100%;*/
+    object-fit: contain;
+    width: 380px;
+    height: 380px;
 }
 
 /*Thanos*/

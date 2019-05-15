@@ -1,14 +1,17 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable-next-line class-methods-use-this */
 import React, { Component } from 'react';
 import Thanos from 'react-thanos';
+import _ from 'underscore';
 import { headerText, thanosText, timeStoneText,
-  dbronaUnwell, gameUnwell, dexterUnwell, hobbiesUnwell, twigsyUnwell, appearancesUnwell,
-  dbronaOne, dbronaTwo,
-  gamesOne,
-  dexterOne,
-  tagOne,
+  dbronaUnwell, gameUnwell, dexterUnwell, tagUnwell, twigsyUnwell, appearancesUnwell,
+  dbronaOne, dbronaTwo, dbronaThree,
+  gamesOne, gamesTwo,
+  dexterOne, dexterTwo,
+  tagOne, tagTwo,
   twigsyOne,
-  gotThrones } from '../constants';
+  gotThronesOne, gotThronesTwo,
+  contenders } from '../constants';
 import HeaderComponent from './HeaderComponent';
 import DisplayComponent from './DisplayComponent';
 import '../styles/homePage.css';
@@ -16,127 +19,145 @@ import '../styles/thanosDust.css';
 
 class HomePageComponent extends Component {
 
+  static destinyAlwaysArrives() {
+    return _.shuffle(contenders).slice(0, contenders.length / 2);
+  }
+
   constructor(props) {
     super(props);
     this.state = {
       thanosSnapped: false,
       switchDBronaPicture: false,
+      switchGamePicture: false,
+      switchDexterPicture: false,
+      switchTagPicture: false,
+      switchAppearancePicture: false,
       showDBrona: true,
       showGames: true,
       showDexter: true,
-      showHobbies: true,
-      twigsy: true,
-      appearances: true
+      showTag: true,
+      showTwigsy: true,
+      showAppearances: true
     };
 
     this.handleDbronaClick = this.handleDbronaClick.bind(this);
+    this.handleGamesClick = this.handleGamesClick.bind(this);
+    this.handleDexterClick = this.handleDexterClick.bind(this);
+    this.handleTagClick = this.handleTagClick.bind(this);
+    this.handleAppearancesClick = this.handleAppearancesClick.bind(this);
+
     this.thanosSnap = this.thanosSnap.bind(this);
-    this.thanosTimeStone = this.thanosTimeStone.bind(this);
+    this.timeStone = this.timeStone.bind(this);
   }
 
   handleDbronaClick() {
     this.setState(prevState => ({ switchDBronaPicture: !prevState.switchDBronaPicture }));
   }
 
-  thanosSnap() {
-    const chosen = Math.floor(Math.random() * Math.floor(5));
-    // const chosen = 0;
-
-    if (chosen === 0) {
-      this.setState({ showDBrona: false, thanosSnapped: true });
-    }
-    if (chosen === 1) {
-      this.setState({ showGames: false, thanosSnapped: true });
-    }
-    if (chosen === 2) {
-      this.setState({ showDexter: false, thanosSnapped: true });
-    }
-    if (chosen === 3) {
-      this.setState({ showHobbies: false, thanosSnapped: true });
-    }
-    if (chosen === 4) {
-      this.setState({ twigsy: false, thanosSnapped: true });
-    }
-    if (chosen === 5) {
-      this.setState({ appearances: false, thanosSnapped: true });
-    }
+  handleGamesClick() {
+    this.setState(prevState => ({ switchGamePicture: !prevState.switchGamePicture }));
   }
 
-  thanosTimeStone() {
+  handleDexterClick() {
+    this.setState(prevState => ({ switchDexterPicture: !prevState.switchDexterPicture }));
+  }
+
+  handleTagClick() {
+    this.setState(prevState => ({ switchTagPicture: !prevState.switchTagPicture }));
+  }
+
+  handleAppearancesClick() {
+    this.setState(prevState => ({ switchAppearancePicture: !prevState.switchAppearancePicture }));
+  }
+
+  thanosSnap() {
+    const chosen = HomePageComponent.destinyAlwaysArrives();
+
+    for (let i = 0; i < chosen.length; i++) {
+      const state = chosen[i];
+      const stateUpdate = {};
+      stateUpdate[state] = false;
+      this.setState(stateUpdate);
+    }
+    this.setState({ thanosSnapped: true });
+  }
+
+  timeStone() {
     this.setState({ showDBrona: true,
       showGames: true,
       showDexter: true,
-      showHobbies: true,
-      twigsy: true,
-      appearances: true,
+      showTag: true,
+      showTwigsy: true,
+      showAppearances: true,
       thanosSnapped: false });
   }
 
   render() {
-
     return (
       <div className="center_text">
-
         <HeaderComponent text={headerText} />
 
         { this.state.thanosSnapped ? <div className="timeStoneText">{timeStoneText}</div> : <div className="thanosText">{thanosText}</div> }
 
         <Thanos
           onSnap={() => this.thanosSnap()}
-          onSnapReverse={() => this.thanosTimeStone()} />
+          onSnapReverse={() => this.timeStone()} />
 
         <div className="flex-container">
+
           <div className={this.state.showDBrona ? 'timeStoneReturn' : 'thanosSnap'} onClick={this.handleDbronaClick}>
             <div className="unwellText">
               <div className={this.state.showDBrona ? 'unwell' : ''}>{dbronaUnwell}</div>
             </div>
             <DisplayComponent
-              picture={this.state.switchDBronaPicture ? dbronaOne : dbronaTwo}
+              picture={this.state.switchDBronaPicture ? dbronaOne : dbronaThree}
               text="DBrona" />
           </div>
 
-          <div className={this.state.showGames ? 'timeStoneReturn' : 'thanosSnap'}>
+          <div className={this.state.showGames ? 'timeStoneReturn' : 'thanosSnap'} onClick={this.handleGamesClick}>
             <div className="unwellText">
               <div className={this.state.showGames ? 'unwell' : ''}>{gameUnwell}</div>
             </div>
             <DisplayComponent
-              picture={gamesOne}
+              picture={this.state.switchGamePicture ? gamesOne : gamesTwo}
               text="Games" />
           </div>
 
-          <div className={this.state.showDexter ? 'timeStoneReturn' : 'thanosSnap'}>
+          <div className={this.state.showDexter ? 'timeStoneReturn' : 'thanosSnap'} onClick={this.handleDexterClick}>
             <div className="unwellText">
               <div className={this.state.showDexter ? 'unwell' : ''}>{dexterUnwell}</div>
             </div>
             <DisplayComponent
-              picture={dexterOne}
+              picture={this.state.switchDexterPicture ? dexterOne : dexterTwo}
               text="Dexter" />
           </div>
 
-          <div className={this.state.showHobbies ? 'timeStoneReturn' : 'thanosSnap'}>
-            <div className="unwellText">
-              <div className={this.state.showHobbies ? 'unwell' : ''}>{hobbiesUnwell}</div>
+          <div className="">
+            <div className={this.state.showTag ? 'timeStoneReturn' : 'thanosSnap'} onClick={this.handleTagClick}>
+              <div className="unwellText">
+                <div className={this.state.showTag ? 'unwell' : ''}>{tagUnwell}</div>
+              </div>
+              <DisplayComponent
+                picture={this.state.switchTagPicture ? tagOne : tagTwo}
+                text="Tag" />
             </div>
-            <DisplayComponent
-              picture={tagOne}
-              text="Hobbies" />
           </div>
 
-          <div className={this.state.twigsy ? 'timeStoneReturn' : 'thanosSnap'}>
+          <div className={this.state.showTwigsy ? 'timeStoneReturn' : 'thanosSnap'}>
             <div className="unwellText">
-              <div className={this.state.twigsy ? 'unwell' : ''}>{twigsyUnwell}</div>
+              <div className={this.state.showTwigsy ? 'unwell' : ''}>{twigsyUnwell}</div>
             </div>
             <DisplayComponent
               picture={twigsyOne}
               text="Twigsy" />
           </div>
 
-          <div className={this.state.appearances ? 'timeStoneReturn' : 'thanosSnap'}>
+          <div className={this.state.showAppearances ? 'timeStoneReturn' : 'thanosSnap'} onClick={this.handleAppearancesClick}>
             <div className="unwellText">
-              <div className={this.state.appearances ? 'unwell' : ''}>{appearancesUnwell}</div>
+              <div className={this.state.showAppearances ? 'unwell' : ''}>{appearancesUnwell}</div>
             </div>
             <DisplayComponent
-              picture={gotThrones}
+              picture={this.state.switchAppearancePicture ? gotThronesOne : gotThronesTwo}
               text="Appearances" />
           </div>
 
@@ -147,4 +168,3 @@ class HomePageComponent extends Component {
 }
 
 export default HomePageComponent;
-

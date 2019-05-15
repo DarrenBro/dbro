@@ -4,8 +4,8 @@ import '../styles/homePage.css';
 
 const DisplayComponent = ({ picture, text }) => (
   <div>
-    <img src={picture} alt={text} />
-    <div className="small-text">{text}</div>
+    <img className="imageResize" src={picture} alt={text} />
+    <div className="imageText">{text}</div>
   </div>
 );
 

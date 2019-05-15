@@ -17,7 +17,8 @@
     "react-form": "^2.16.3",
     "react-scripts": "1.1.1",
     "react-thanos": "^1.0.2",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "underscore": "^1.9.1"
   },
   "scripts": {
     "dbro": "react-scripts build && echo dbro.surge.sh > CNAME && mv CNAME build/ && surge",
