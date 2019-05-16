@@ -2,7 +2,7 @@ export const headerText = 'Welcome to DBro\'s ;)';
 
 export const thanosText = '"I... Am Inevitable"';
 export const timeStoneText = '"Time Is Just An Illusion"';
-export const contenders = ['showDBrona', 'showGames', 'showDexter', 'showTag', 'showTwigsy', 'showAppearances'];
+export const contenders = ['showDBrona', 'showGames', 'showDexter', 'showTag', 'showTwigsy', 'showAppearances', 'showLit'];
 
 // Unwell
 export const dbronaUnwell = 'We don\'t feel so good...';

@@ -36,10 +36,12 @@
 }
 
 .imageResize {
-    /*width: 100%;*/
     object-fit: contain;
     width: 380px;
     height: 380px;
+    /*@media(max-width: 800px){*/
+    /*    width: 100%;*/
+    /*}*/
 }
 
 /*Thanos*/

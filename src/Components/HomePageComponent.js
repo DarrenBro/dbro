@@ -4,14 +4,15 @@ import React, { Component } from 'react';
 import Thanos from 'react-thanos';
 import _ from 'underscore';
 import { headerText, thanosText, timeStoneText,
-  dbronaUnwell, gameUnwell, dexterUnwell, tagUnwell, twigsyUnwell, appearancesUnwell,
+  dbronaUnwell, gameUnwell, dexterUnwell, tagUnwell, twigsyUnwell, appearancesUnwell, litUnwell,
   dbronaOne, dbronaTwo, dbronaThree,
   gamesOne, gamesTwo,
   dexterOne, dexterTwo,
   tagOne, tagTwo,
   twigsyOne,
   gotThronesOne, gotThronesTwo,
-  contenders } from '../constants';
+  contenders,
+  litOne } from '../constants';
 import HeaderComponent from './HeaderComponent';
 import DisplayComponent from './DisplayComponent';
 import '../styles/homePage.css';
@@ -32,12 +33,14 @@ class HomePageComponent extends Component {
       switchDexterPicture: false,
       switchTagPicture: false,
       switchAppearancePicture: false,
+      switchLitPicture: false,
       showDBrona: true,
       showGames: true,
       showDexter: true,
       showTag: true,
       showTwigsy: true,
-      showAppearances: true
+      showAppearances: true,
+      showLit: true
     };
 
     this.handleDbronaClick = this.handleDbronaClick.bind(this);
@@ -70,6 +73,10 @@ class HomePageComponent extends Component {
     this.setState(prevState => ({ switchAppearancePicture: !prevState.switchAppearancePicture }));
   }
 
+  handleLitClick() {
+    this.setState(prevState => ({ switchLitPicture: !prevState.switchLitPicture }));
+  }
+
   thanosSnap() {
     const chosen = HomePageComponent.destinyAlwaysArrives();
 
@@ -89,6 +96,7 @@ class HomePageComponent extends Component {
       showTag: true,
       showTwigsy: true,
       showAppearances: true,
+      showLit: true,
       thanosSnapped: false });
   }
 
@@ -132,15 +140,13 @@ class HomePageComponent extends Component {
               text="Dexter" />
           </div>
 
-          <div className="">
-            <div className={this.state.showTag ? 'timeStoneReturn' : 'thanosSnap'} onClick={this.handleTagClick}>
-              <div className="unwellText">
-                <div className={this.state.showTag ? 'unwell' : ''}>{tagUnwell}</div>
-              </div>
-              <DisplayComponent
-                picture={this.state.switchTagPicture ? tagOne : tagTwo}
-                text="Tag" />
+          <div className={this.state.showTag ? 'timeStoneReturn' : 'thanosSnap'} onClick={this.handleTagClick}>
+            <div className="unwellText">
+              <div className={this.state.showTag ? 'unwell' : ''}>{tagUnwell}</div>
             </div>
+            <DisplayComponent
+              picture={this.state.switchTagPicture ? tagOne : tagTwo}
+              text="Tag" />
           </div>
 
           <div className={this.state.showTwigsy ? 'timeStoneReturn' : 'thanosSnap'}>
@@ -159,6 +165,15 @@ class HomePageComponent extends Component {
             <DisplayComponent
               picture={this.state.switchAppearancePicture ? gotThronesOne : gotThronesTwo}
               text="Appearances" />
+          </div>
+
+          <div className={this.state.showLit ? 'timeStoneReturn' : 'thanosSnap'} onClick={this.handleLitClick}>
+            <div className="unwellText">
+              <div className={this.state.showLit ? 'unwell' : ''}>{litUnwell}</div>
+            </div>
+            <DisplayComponent
+              picture={this.state.switchLitPicture ? litOne : litOne}
+              text="LIT" />
           </div>
 
         </div>
