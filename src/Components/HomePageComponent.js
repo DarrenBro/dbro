@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+
 import React, { Component } from 'react';
 import Thanos from 'react-thanos';
 import { headerText, thanosText, timeStoneText,
